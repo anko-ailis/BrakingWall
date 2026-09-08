@@ -1,0 +1,11 @@
+[core]
+	autocrlf = true
+[user]
+	name = D:\\Users\\2512003\\SourceTree
+	email = tk.anko.foxer@gmail.com
+[difftool "sourcetree"]
+	cmd = "'' "
+[mergetool "sourcetree"]
+	cmd = "'' "
+	trustExitCode = false
+	keepBackup = false

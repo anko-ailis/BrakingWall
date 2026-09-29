@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,30 +9,39 @@ public class Grab : MonoBehaviour
     [SerializeField] private Transform rayPoint;
 
     private float rayDistance = 0.2f;
-    private GameObject grabObj;
+    private bool hold = false;
+    private GameObject bomb;
     RaycastHit2D hit;
 
     void Update()
     {
+        if (hold == true)
+        {
+            Hold();
+        }
        
     }
-    public void OnMove(InputAction.CallbackContext context)
+    public void Ray(InputAction.CallbackContext context)
     {
-        if (grabObj == null)
+        
+        hit = Physics2D.Raycast(rayPoint.position, transform.right, rayDistance);
+        if (hit.collider != null && hit.collider.tag == "bomb")
         {
-            hit = Physics2D.Raycast(rayPoint.position, transform.right, rayDistance);
-            if (hit.collider != null && hit.collider.tag == "bomb")
+            Debug.Log("’Í‚Þ");
+            bomb = hit.collider.gameObject;
+            if (hold == false)
             {
-                grabObj = hit.collider.gameObject;
-                grabObj.transform.position = grabPoint.position;
-                grabObj.transform.SetParent(transform);
+
+                hold = true;
+            }
+            else
+            {
+                hold = false;
             }
         }
-        else
-        {
-            grabObj.transform.SetParent(null);
-            grabObj = null;
     }
-        
-}
+    void Hold()
+    {
+        bomb.transform.position = grabPoint.position;
+    }
 }

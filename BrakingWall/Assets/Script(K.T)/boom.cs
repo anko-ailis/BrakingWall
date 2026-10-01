@@ -3,14 +3,15 @@ using UnityEngine;
 public class boom : MonoBehaviour
 {
     // ”š”­
-    void Start()
+
+    private void PrivateMethod()
     {
-        
+        Debug.Log("PrivateMethod");
+        Destroy(this.gameObject);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void PublicMethod()
     {
-        
+        Debug.Log("PublicMethod");
     }
 }

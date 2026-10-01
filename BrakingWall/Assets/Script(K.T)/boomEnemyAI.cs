@@ -6,8 +6,11 @@ public class NewMonoBehaviourScript : MonoBehaviour
 {
     [SerializeField] private GameObject playerObject;   //プレイヤー
     [SerializeField] private float moveSpeed;           //移動速度
-    [SerializeField] private float destroyCountoTime;                       //プレイヤーとの距離
+    [SerializeField] private float destroyCountoTime;   //プレイヤーとの距離
+    [SerializeField] private float fireBomRenge;        //点火までの距離
     [SerializeField] private TextMeshProUGUI textMesh;  //時間表示のための
+    [SerializeField] private GameObject explosionDamegEfect;//爆発エフェクト
+    [SerializeField] private GameObject explosionNoDamegEfect;//爆発エフェクト
     private float countTimere = 0;
     private bool Hold = false;                          //つかまれたか
     private bool hiting = true;                         //当たっているか
@@ -37,20 +40,20 @@ public class NewMonoBehaviourScript : MonoBehaviour
             this.transform.position = Vector3.MoveTowards(this.transform.position, playerObject.transform.position, moveSpeed / 100);    //プレイヤー方向に直進
         }
         //動きの一時停止(つかまれたら動かない)
-        if(Input.GetKey(KeyCode.T)||! hiting)
-        {
-            Hold = true;
-            //this.transform.eulerAngles = new Vector3(0, 0, 0);
-        }
-        else
-        {
-            Hold = false;
-        }
+        //if(Input.GetKey(KeyCode.T)||! hiting)
+        //{
+        //    Hold = true;
+        //    //this.transform.eulerAngles = new Vector3(0, 0, 0);
+        //}
+        //else
+        //{
+        //    Hold = false;
+        //}
         //対象がいれば点火、いなければ自爆
         if (playerObject != null)
         {
             //距離が近くなると爆弾君が点火する
-            if (Vector3.Distance(transform.position, playerObject.transform.position) < 3)
+            if (Vector3.Distance(transform.position, playerObject.transform.position) < fireBomRenge)
             {
                 fireBom = true;
             }
@@ -64,9 +67,15 @@ public class NewMonoBehaviourScript : MonoBehaviour
             {
                 SelfDestruct();
             }
-            Debug.Log(countTimere);
+            //Debug.Log(countTimere);
             textMesh.text = (destroyCountoTime - Mathf.Floor(countTimere)).ToString();
+             
         }
+        //捕まれた状態のテスト用
+        if (Input.GetKey(KeyCode.P))
+            Hold = true;
+        else
+            Hold = false;
     }
 
     private void OnCollisionStay2D(Collision2D collision)
@@ -83,6 +92,18 @@ public class NewMonoBehaviourScript : MonoBehaviour
     private void SelfDestruct()
     {
         Debug.Log("自爆するしかねぇ");
+        Debug.Log(Hold);
+        //捕まっていないとダメージあり、捕まっていたらダメージなし
+        if(!Hold)
+        {
+            Debug.Log("yesDameg");
+            Instantiate(explosionDamegEfect, this.gameObject.transform.position, explosionDamegEfect.transform.rotation);
+        }
+        else
+        {
+            Debug.Log("noDameg");
+            Instantiate(explosionNoDamegEfect, this.gameObject.transform.position, explosionNoDamegEfect.transform.rotation);
+        }
         Destroy(this.gameObject);
     }
     /// <summary>

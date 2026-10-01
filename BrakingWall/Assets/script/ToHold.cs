@@ -9,6 +9,7 @@ public class Grab : MonoBehaviour
     [SerializeField] private Transform rayPoint;
 
     private float rayDistance = 0.2f;
+    private Vector2 bombmove = new Vector2 (0,10);
     private bool hold = false;
     private GameObject bomb;
     RaycastHit2D hit;
@@ -27,15 +28,14 @@ public class Grab : MonoBehaviour
         hit = Physics2D.Raycast(rayPoint.position, transform.right, rayDistance);
         if (hit.collider != null && hit.collider.tag == "bomb")
         {
-            Debug.Log("’Í‚Þ");
             bomb = hit.collider.gameObject;
             if (hold == false)
             {
-
                 hold = true;
             }
             else
             {
+                Throw();
                 hold = false;
             }
         }
@@ -44,4 +44,5 @@ public class Grab : MonoBehaviour
     {
         bomb.transform.position = grabPoint.position;
     }
+    
 }

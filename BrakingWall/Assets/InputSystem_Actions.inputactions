@@ -88,9 +88,36 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "RotationA",
+                    "name": "RotationW",
                     "type": "Button",
                     "id": "7c2ec353-6333-4c1e-b0a4-39fefa5ea9b9",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "RotationA",
+                    "type": "Button",
+                    "id": "b9520c3d-df2b-4314-9192-fa13f8d68666",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "RotationS",
+                    "type": "Button",
+                    "id": "eae8fc67-3eff-48b9-b381-a0de144970fe",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "RotationD",
+                    "type": "Button",
+                    "id": "e11d6dcb-76d0-4e29-a2da-a1492e4f736d",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -486,6 +513,28 @@
                 {
                     "name": "",
                     "id": "79f90f0b-f378-46f0-b1c0-21a967f0ad87",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "RotationW",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "72f62906-7134-4ffb-921c-f5a5f53e07b5",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RotationW",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b345d62b-5db0-480f-9dc8-09afb6cc7c7e",
                     "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
@@ -496,12 +545,56 @@
                 },
                 {
                     "name": "",
-                    "id": "72f62906-7134-4ffb-921c-f5a5f53e07b5",
+                    "id": "50d98b6b-d542-44ea-bfa0-96b13122aa15",
                     "path": "<Keyboard>/leftArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "RotationA",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "49a54a53-6479-4030-9461-e4ca84fccf80",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "RotationS",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a855857b-6def-486d-9507-7b4ea5570e5f",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RotationS",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9f28f1ea-693b-4593-ae19-3d0da6f4a82f",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "RotationD",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2f30bed8-7969-44f0-8e23-01a13f5a9b16",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RotationD",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

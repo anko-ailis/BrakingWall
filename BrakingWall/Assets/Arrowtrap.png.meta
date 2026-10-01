@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: d3c15c1807f713c45bd88b13f8c48d29
+guid: 098a1e0a0adf8a4478d40814b750ba3b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8550061964587912108
-    second: "\u77E2_0"
+      213: 8484214784405286335
+    second: Arrowtrap_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -139,13 +139,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "\u77E2_0"
+      name: Arrowtrap_0
       rect:
         serializedVersion: 2
-        x: 10
-        y: 1
-        width: 12
-        height: 30
+        x: 0
+        y: 0
+        width: 50
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,8 +154,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 454b82181f3185980800000000000000
-      internalID: -8550061964587912108
+      spriteID: fbd2896256cfdb570800000000000000
+      internalID: 8484214784405286335
       vertices: []
       indices: 
       edges: []
@@ -174,7 +174,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      "\u77E2_0": -8550061964587912108
+      Arrowtrap_0: 8484214784405286335
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

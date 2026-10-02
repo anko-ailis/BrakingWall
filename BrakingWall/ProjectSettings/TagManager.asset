@@ -7,6 +7,8 @@ TagManager:
   - Color_Red
   - Color_Blue
   - Color_Green
+  - Color_blue
+  - Enemy
   layers:
   - Default
   - TransparentFX

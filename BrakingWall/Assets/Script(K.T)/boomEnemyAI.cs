@@ -6,14 +6,13 @@ public class NewMonoBehaviourScript : MonoBehaviour
 {
     [SerializeField] private GameObject playerObject;   //プレイヤー
     [SerializeField] private float moveSpeed;           //移動速度
-    [SerializeField] private float destroyCountoTime;   //プレイヤーとの距離
+    [SerializeField] private float destroyCountoTime;   //爆発までの時間
     [SerializeField] private float fireBomRenge;        //点火までの距離
     [SerializeField] private TextMeshProUGUI textMesh;  //時間表示のための
     [SerializeField] private GameObject explosionDamegEfect;//爆発エフェクト
     [SerializeField] private GameObject explosionNoDamegEfect;//爆発エフェクト
     private float countTimere = 0;
     private bool Hold = false;                          //つかまれたか
-    private bool hiting = true;                         //当たっているか
     private bool fireBom = false;                       //カウントダウン開始までの距離
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -60,7 +59,10 @@ public class NewMonoBehaviourScript : MonoBehaviour
         }
         if (fireBom)
         {
-            countTimere += Time.deltaTime;
+            if(!Hold)
+            {
+                countTimere += Time.deltaTime;
+            }
             //bomCount += (bomCount + Time.time) / 1000;
             //bomCount = Time.time /1000;
             if (countTimere > destroyCountoTime)
@@ -78,21 +80,13 @@ public class NewMonoBehaviourScript : MonoBehaviour
             Hold = false;
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        hiting = false;
-    }
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        hiting = true;
-    }
     /// <summary>
     /// 自爆プログラム
     /// </summary>
     private void SelfDestruct()
     {
-        Debug.Log("自爆するしかねぇ");
-        Debug.Log(Hold);
+        //Debug.Log("自爆するしかねぇ");
+        //Debug.Log(Hold);
         //捕まっていないとダメージあり、捕まっていたらダメージなし
         if(!Hold)
         {

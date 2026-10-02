@@ -6,7 +6,7 @@ public class boom : MonoBehaviour
 
     private void PrivateMethod()
     {
-        Debug.Log("PrivateMethod");
+        //Debug.Log("PrivateMethod");
         Destroy(this.gameObject);
     }
 

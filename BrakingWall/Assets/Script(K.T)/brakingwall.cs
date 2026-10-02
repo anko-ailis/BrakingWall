@@ -10,15 +10,7 @@ public class brakingwall : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-        Debug.Log(collision.gameObject.tag);
+        //Debug.Log(collision.gameObject.tag);
         //collision.gameObject;
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag(tagName))
-        {
-            Destroy(this.gameObject);
-        }
-        Debug.Log(collision.gameObject.tag);
     }
 }

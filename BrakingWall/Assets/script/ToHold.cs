@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 
 public class Grab : MonoBehaviour
 {
-
+    [SerializeField] BombThrow bombT;
     [SerializeField] private Transform grabPoint;
     [SerializeField] private Transform rayPoint;
 
@@ -35,8 +35,9 @@ public class Grab : MonoBehaviour
             }
             else
             {
-                Throw();
+                bombT = bomb.GetComponent<BombThrow>();
                 hold = false;
+                //bombT.Throw();
             }
         }
     }

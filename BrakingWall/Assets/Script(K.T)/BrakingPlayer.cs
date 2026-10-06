@@ -1,3 +1,5 @@
+using NUnit.Framework.Internal.Filters;
+using UnityEditor.ShaderKeywordFilter;
 using UnityEngine;
 
 public class BrakingPlayer : MonoBehaviour
@@ -7,10 +9,13 @@ public class BrakingPlayer : MonoBehaviour
     [SerializeField] private string tagColor;
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.transform.parent.gameObject.CompareTag(tagEnamy))
+        if(collision.gameObject .transform.parent != null)
         {
-            Debug.Log("-_-");
-            Destroy(this.gameObject);
+            if (collision.gameObject.transform.parent.gameObject.CompareTag(tagEnamy))
+            {
+                Debug.Log("-_-");
+                Destroy(this.gameObject);
+            }
         }
         //foreach (GameObject enem in tagName)
         //{

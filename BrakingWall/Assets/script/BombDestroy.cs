@@ -13,7 +13,6 @@ public class BombDestroy : MonoBehaviour
         //動いている時
         if (moving == true)
         {
-            Debug.Log(collision.gameObject);
             //当たったオブジェクトが壁の時
             if (collision.gameObject.CompareTag("wall"))
             {

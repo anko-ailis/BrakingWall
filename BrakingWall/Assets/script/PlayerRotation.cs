@@ -40,7 +40,7 @@ public class PlayerRotation : MonoBehaviour
     //Wキーが押された時
     public void RoteW(InputAction.CallbackContext context)
     {
-        if (context.canceled)//全部につけて
+        if (context.started)
         {
             RotaUp(); //向きを上に補正
             direction = 1;//向きは上
@@ -49,23 +49,33 @@ public class PlayerRotation : MonoBehaviour
     //Aキーが押された時
     public void RoteA(InputAction.CallbackContext context)
     {
-        RotaUp();//向きを上に補正
-        player.transform.Rotate(0, 0, 90);//プレイヤーを左に回転
-        direction = 2;//向きは左
+        if (context.started)
+        {
+            RotaUp();//向きを上に補正
+            player.transform.Rotate(0, 0, 90);//プレイヤーを左に回転
+            direction = 2;//向きは左
+        }
+        
     }
     //Sキーが押された時
     public void RoteS(InputAction.CallbackContext context)
     {
-        RotaUp();//向きを上に補正
-        player.transform.Rotate(0, 0, 180);//プレイヤーを下に回転
-        direction = 3;//向きは下   
+        if (context.started)
+        {
+            RotaUp();//向きを上に補正
+            player.transform.Rotate(0, 0, 180);//プレイヤーを下に回転
+            direction = 3;//向きは下   
+        }
     }
     //Dキーが押された時
     public void RoteD(InputAction.CallbackContext context)
     {
-        RotaUp();//向きを上に補正
-        player.transform.Rotate(0, 0, -90);//プレイヤーを右に回転
-        direction = 4;//向きは右      
+        if (context.started)
+        {
+            RotaUp();//向きを上に補正
+            player.transform.Rotate(0, 0, -90);//プレイヤーを右に回転
+            direction = 4;//向きは右      
+        }
     }
     //プレイヤーの向きを教える
     public int handover()

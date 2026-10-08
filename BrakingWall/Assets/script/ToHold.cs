@@ -3,7 +3,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Grab : MonoBehaviour
+public class ToHold : MonoBehaviour
 {
     [SerializeField] BombThrow bombT;//BombThrowクラス
     [SerializeField] private Transform grabPoint;//掴む位置
@@ -62,5 +62,4 @@ public class Grab : MonoBehaviour
         //掴んでいる爆弾の位置を掴む位置に合わせる
         bomb.transform.position = grabPoint.position;
     }
-    
 }

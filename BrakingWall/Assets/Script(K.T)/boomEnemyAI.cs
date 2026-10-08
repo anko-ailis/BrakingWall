@@ -4,20 +4,24 @@ using UnityEngine.UIElements;
 
 public class boomEnemyAI : MonoBehaviour
 {
+    [Tooltip("プレイヤーを判断するためのの変数。" +
+        "何も入れなくて大丈夫だけど心配なら入れてください")]
     [SerializeField] private GameObject playerObject;   //プレイヤー
     [SerializeField] private float moveSpeed;           //移動速度
     [SerializeField] private float destroyCountoTime;   //爆発までの時間
     //[SerializeField] private float fireBomRenge;        //点火までの距離
-    [Tooltip("対応したテキストを入れてください")]
+    [Tooltip("感知範囲　2以下だと常時追ってきます")]
     [SerializeField] private float perceptionRange;     //敵がプレイヤーを見つけられる範囲(現在敵のサイズは2)
     [Tooltip("対応したテキストを入れてください")]
     [SerializeField] private TextMeshProUGUI textMesh;  //時間表示のためのテキスト
     [SerializeField] private GameObject explosionDamegEfect;//爆発エフェクト
     [SerializeField] private GameObject explosionNoDamegEfect;//爆発エフェクト
+    [SerializeField] private string tagColor;
     private bool playerInRange= false;
     private float countTimere = 0;
     private bool Hold = false;                          //つかまれたか
     private bool fireBom = false;                       //カウントダウン開始までの距離
+    private bool existencePlayer;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -27,30 +31,30 @@ public class boomEnemyAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if(playerObject == null)
-        //{
             SearchPalyerObject();
             if (playerObject == null) SelfDestruct();
-        Debug.Log(playerInRange+ "[][]" + Hold);
-        //}
+        //Debug.Log(playerInRange+ "[][]" + Hold);
         if(Hold == false && playerInRange)
         {
             Vector3 direction;
-            //Debug.Log("nowMove");
             //プレイヤーとの距離の計算
-            //playerDistance = Vector3.Distance(this.transform.position, playerObject.transform.position);
-            ////this.transform.LookAt(playerObject.transform);      //プレイヤーの方を向く(3D)
+
             if (playerObject != null)
             {
                 direction = (playerObject.transform.position - this.transform.position);  //向きの計算
+                this.transform.rotation = Quaternion.FromToRotation(Vector3.up, direction);       // ここで向きたい方向に回転させてます
+                                                                                                  //Debug.Log(this.gameObject.name + playerDistance + "" + this.transform.rotation);
+                this.transform.position = Vector3.MoveTowards(this.transform.position, playerObject.transform.position, moveSpeed / 100);    //プレイヤー方向に直進
             }
             else 
             {
                 direction = new Vector3(0, 0, 0);
             }
-                this.transform.rotation = Quaternion.FromToRotation(Vector3.up, direction);       // ここで向きたい方向に回転させてます
-            //Debug.Log(this.gameObject.name + playerDistance + "" + this.transform.rotation);
-            this.transform.position = Vector3.MoveTowards(this.transform.position, playerObject.transform.position, moveSpeed / 100);    //プレイヤー方向に直進
+            if(existencePlayer)
+            {
+
+
+            }
         }
         //対象がいれば点火、いなければ自爆
         if (playerObject != null)
@@ -64,12 +68,7 @@ public class boomEnemyAI : MonoBehaviour
         //動きの一時停止(つかまれたら動かない)
         if (fireBom)
         {
-            if(!Hold)
-            {
                 countTimere += Time.deltaTime;
-            }
-            //bomCount += (bomCount + Time.time) / 1000;
-            //bomCount = Time.time /1000;
             if (countTimere > destroyCountoTime)
             {
                 SelfDestruct();
@@ -133,12 +132,14 @@ public class boomEnemyAI : MonoBehaviour
         //playerタグ持ちをリストで並べる いなければ自爆
         foreach (GameObject player in enemies)
         {
-            // 自分（this）とplayerの距離を計算
-            float dist = Vector3.Distance(transform.position, player.transform.position);
+            if (player != null) existencePlayer = true;
+            else existencePlayer = false;
+                // 自分（this）とplayerの距離を計算
+                float dist = Vector3.Distance(transform.position, player.transform.position);
             if(dist < Mathf.Infinity)
             {
                 playerObject = player;
-                Debug.Log("[playerObject]" + playerObject+ "[player]" + player);
+                //Debug.Log("[playerObject]" + playerObject+ "[player]" + player);
             }
             // これまでの最小距離より近ければ更新する
             if (dist < minDistance)
@@ -153,7 +154,23 @@ public class boomEnemyAI : MonoBehaviour
             }
             else if(gameObject == null) playerInRange = false;
 
-            Debug.Log(this.name +playerInRange);
+            //Debug.Log(this.name +playerInRange);
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        //壊れる壁かつ指定した色だとお互い壊れる
+        if(collision.gameObject.transform.parent!= null &&collision.gameObject.transform.parent.CompareTag("Brake_wall"))
+        {
+            Debug.Log("parentr"+ collision.gameObject.transform.parent.tag);
+            if (collision.gameObject.CompareTag(tagColor))
+            {
+                Destroy(collision.gameObject);
+                SelfDestruct();
+                Debug.Log("noDestoroy");
+            }
+        }
+
     }
 }

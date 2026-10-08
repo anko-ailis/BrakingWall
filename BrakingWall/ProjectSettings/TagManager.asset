@@ -7,8 +7,8 @@ TagManager:
   - Color_Red
   - Color_Blue
   - Color_Green
-  - Color_blue
   - Enemy
+  - Brake_wall
   layers:
   - Default
   - TransparentFX

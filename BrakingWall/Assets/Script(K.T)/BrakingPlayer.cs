@@ -6,12 +6,12 @@ public class BrakingPlayer : MonoBehaviour
 {
     //壁に当たったら壊れる
     [SerializeField] private string tagEnamy;
-    [SerializeField] private string tagColor;
     void OnCollisionEnter2D(Collision2D collision)
     {
+        //エネミータグにあたると死ぬ
         if(collision.gameObject .transform.parent != null)
         {
-            if (collision.gameObject.transform.parent.gameObject.CompareTag(tagEnamy))
+            if (collision.gameObject.transform.parent.gameObject.CompareTag("Enemy"))
             {
                 Debug.Log("-_-");
                 Destroy(this.gameObject);
@@ -31,7 +31,7 @@ public class BrakingPlayer : MonoBehaviour
     //爆風に当たったら消える
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag(tagEnamy))
+        if (collision.gameObject.CompareTag("Enemy"))
         {
             Destroy(this.gameObject);
         }

@@ -22,10 +22,12 @@ public class boomEnemyAI : MonoBehaviour
     private bool Hold = false;                          //つかまれたか
     private bool fireBom = false;                       //カウントダウン開始までの距離
     private bool existencePlayer;
+    private bool hitWall;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         textMesh.text = destroyCountoTime.ToString();
+        hitWall = false;
     }
 
     // Update is called once per frame
@@ -92,7 +94,7 @@ public class boomEnemyAI : MonoBehaviour
         //Debug.Log("自爆するしかねぇ");
         //Debug.Log(Hold);
         //捕まっていないとダメージあり、捕まっていたらダメージなし
-        if(!Hold)
+        if(!Hold && !hitWall)
         {
             Debug.Log("yesDameg");
             Instantiate(explosionDamegEfect, this.gameObject.transform.position, explosionDamegEfect.transform.rotation);
@@ -166,6 +168,7 @@ public class boomEnemyAI : MonoBehaviour
             Debug.Log("parentr"+ collision.gameObject.transform.parent.tag);
             if (collision.gameObject.CompareTag(tagColor))
             {
+                hitWall = true;
                 Destroy(collision.gameObject);
                 SelfDestruct();
                 Debug.Log("noDestoroy");

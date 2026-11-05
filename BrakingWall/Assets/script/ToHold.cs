@@ -19,8 +19,18 @@ public class ToHold : MonoBehaviour
         //’Í‚ñ‚Å‚¢‚¢
         if (hold == true)
         {
-            //‰^‚Ô
-            Hold();
+            //”š’e‚ª‘¶İ‚µ‚Ä‚¢‚é‚Æ‚«
+            if (bomb != null)
+            {
+                //‰^‚Ô
+                Hold();
+            }
+            else
+            {
+                //’Í‚ñ‚Å‚¢‚éó‘Ô‚É‚·‚é
+                hold = false;
+            }
+
         }
        
     }

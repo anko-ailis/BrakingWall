@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class DeahtwallMove : MonoBehaviour
 {
+    [SerializeField] ToHold toHold;//ToHoldクラス
     void OnCollisionEnter2D(Collision2D collision)
     {
         //当たったオブジェクトがプレイヤーの時

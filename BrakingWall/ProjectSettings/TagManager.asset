@@ -4,16 +4,14 @@
 TagManager:
   serializedVersion: 3
   tags:
-  - Color_Red
-  - Color_Blue
-  - Color_Green
-  - Enemy
-  - Brake_wall
+  - bomb
+  - wall
+  - player
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
   - 

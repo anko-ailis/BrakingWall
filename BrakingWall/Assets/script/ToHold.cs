@@ -5,12 +5,14 @@ using UnityEngine.InputSystem;
 
 public class ToHold : MonoBehaviour
 {
+    [SerializeField] SliderExample se;//SliderExampleクラス
     [SerializeField] BombThrow bombT;//BombThrowクラス
     [SerializeField] private Transform grabPoint;//掴む位置
     [SerializeField] private Transform rayPoint;//Rayの発射位置
 
     private float rayDistance = 0.2f;//Rayの距離
     private bool hold = false;//掴んでいるか判定
+    private bool thereissutamina = false;//スタミナが足りているか判定
     private GameObject bomb;//掴んでいる爆弾
     RaycastHit2D hit;//Rayの当たり判定
 
@@ -42,16 +44,26 @@ public class ToHold : MonoBehaviour
         //Rayが当たって当たったオブジェクトのタグが爆弾だった時
         if (hit.collider != null && hit.collider.tag == "bomb")
         {
-            //掴む爆弾を取得
-            bomb = hit.collider.gameObject;
             //入力の状態が始まった時
             if (context.started)
             {
                 //掴んでいない時
                 if (hold == false)
                 {
-                    //掴んでいる状態にする
-                    hold = true;
+                    thereissutamina = se.IsStaminaAvailable();
+                    if (thereissutamina == true)
+                    {
+                        Debug.Log("スタミナが足りるよん");
+                        //掴む爆弾を取得
+                        bomb = hit.collider.gameObject;
+                        //掴んでいる状態にする
+                        hold = true;
+                    }
+                    else
+                    {
+                        Debug.Log("スタミナが足りないよん");
+                        //スタミナが足りない時の処理（必要に応じて追加）
+                    }
                 }
                 //掴んでいる時
                 else

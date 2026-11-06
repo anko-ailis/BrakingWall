@@ -7,15 +7,9 @@ using UnityEngine.UI;
 public class BrakingPlayer : MonoBehaviour
 {
     //壁に当たったら壊れる
-    [SerializeField] private string tagEnamy;
-<<<<<<< HEAD
-    [Tooltip("対応したテキストを入れてください")]
-    [SerializeField] private TextMeshProUGUI textMesh;  //時間表示のためのテキスト
-    private int helseCounter = 3;
-    private void Start()
-    {
-        textMesh.text = helseCounter.ToString();
-=======
+    //[SerializeField] private string tagEnamy;
+    //[Tooltip("対応したテキストを入れてください")]
+    //[SerializeField] private TextMeshProUGUI textMesh;  //時間表示のためのテキスト
     [Tooltip("HP")]
     [SerializeField] private TextMeshProUGUI lifeText;  //時間表示のためのテキスト
     [SerializeField] private Image[] lifeImage;
@@ -37,7 +31,6 @@ public class BrakingPlayer : MonoBehaviour
                 //lifeImage.[i] = lostLife;
             }
         }
->>>>>>> komori
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -71,14 +64,9 @@ public class BrakingPlayer : MonoBehaviour
         //敵に当たったらHPを減らす
         if (collision.gameObject.CompareTag("Enemy"))
         {
-<<<<<<< HEAD
-            helseCounter -=1;
-            textMesh.text = helseCounter.ToString();
-=======
             Destroy(this.gameObject);
             helseCounter -=1;
             lifeText.text = helseCounter.ToString();
->>>>>>> komori
             if(helseCounter <= 0) 
             {
                 Destroy(this.gameObject);

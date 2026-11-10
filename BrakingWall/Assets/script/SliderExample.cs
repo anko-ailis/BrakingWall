@@ -30,6 +30,6 @@ public class SliderExample : MonoBehaviour
         {
             thereissutamina = false; // スタミナが不足していることを示す
         }
-        return thereissutamina; // スタミナが50以上あるかどうかを返す
+        return thereissutamina; // スタミナが足りてるかかどうかを返す
     }
 }

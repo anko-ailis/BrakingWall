@@ -7,10 +7,11 @@ public class ToHold : MonoBehaviour
 {
     [SerializeField] SliderExample se;//SliderExampleクラス
     [SerializeField] BombThrow bombT;//BombThrowクラス
+    [SerializeField] UIChange ui; //UIChangeクラス
     [SerializeField] private Transform grabPoint;//掴む位置
     [SerializeField] private Transform rayPoint;//Rayの発射位置
 
-    private float rayDistance = 0.2f;//Rayの距離
+    private float rayDistance = 0.5f;//Rayの距離
     private bool hold = false;//掴んでいるか判定
     private bool thereissutamina = false;//スタミナが足りているか判定
     private GameObject bomb;//掴んでいる爆弾
@@ -29,8 +30,9 @@ public class ToHold : MonoBehaviour
             }
             else
             {
-                //掴んでいる状態にする
+                //掴んでいない状態にする
                 hold = false;
+                ui.ChangeImage2();
             }
 
         }
@@ -58,6 +60,7 @@ public class ToHold : MonoBehaviour
                         bomb = hit.collider.gameObject;
                         //掴んでいる状態にする
                         hold = true;
+                        ui.ChangeImage1();
                     }
                     else
                     {
@@ -74,6 +77,7 @@ public class ToHold : MonoBehaviour
                     bombT.Throw();
                     //掴んでいる状態を解除
                     hold = false;
+                    ui.ChangeImage2();
                 }
             }
         }

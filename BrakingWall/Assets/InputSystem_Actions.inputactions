@@ -64,7 +64,7 @@
                     "name": "Previous",
                     "type": "Button",
                     "id": "2776c80d-3c14-4091-8c56-d04ced07a2b0",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -118,6 +118,15 @@
                     "name": "RotationD",
                     "type": "Button",
                     "id": "e11d6dcb-76d0-4e29-a2da-a1492e4f736d",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Grab",
+                    "type": "Button",
+                    "id": "26c3a2ab-2780-4478-b2e7-4d3129caaa43",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -595,6 +604,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "RotationD",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0cf780c1-62fb-4923-8d2e-149a09165539",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Grab",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

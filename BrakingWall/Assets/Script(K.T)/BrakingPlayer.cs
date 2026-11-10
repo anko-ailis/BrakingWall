@@ -6,19 +6,16 @@ using UnityEngine.UI;
 
 public class BrakingPlayer : MonoBehaviour
 {
-    //壁に当たったら壊れる
     //[SerializeField] private string tagEnamy;
-    //[Tooltip("対応したテキストを入れてください")]
-    //[SerializeField] private TextMeshProUGUI textMesh;  //時間表示のためのテキスト
+    //[Tooltip("")]
+    [SerializeField] private GameObject[] lifeArray;  //時間表示のためのテキスト
     [Tooltip("HP")]
     [SerializeField] private TextMeshProUGUI lifeText;  //時間表示のためのテキスト
-    [SerializeField] private Image[] lifeImage;
-    [SerializeField] private Sprite lostLife;
     private int helseCounter = 3;
     private int lifeCount;
     private void Start()
     {
-        lifeCount = lifeImage.Length;
+        //lifeCount = lifeImage.Length;
         lifeText.text = helseCounter.ToString();
     }
     private void Update()
@@ -64,8 +61,8 @@ public class BrakingPlayer : MonoBehaviour
         //敵に当たったらHPを減らす
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            Destroy(this.gameObject);
-            helseCounter -=1;
+            lifeArray[helseCounter - 1].SetActive(false);
+            helseCounter--;
             lifeText.text = helseCounter.ToString();
             if(helseCounter <= 0) 
             {

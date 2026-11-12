@@ -7,6 +7,12 @@ TagManager:
   - bomb
   - wall
   - player
+  - Color_Red
+  - Enemy
+  - Color_Green
+  - Color_Blue
+  - Brake_wall
+  - ChekPoint
   layers:
   - Default
   - TransparentFX

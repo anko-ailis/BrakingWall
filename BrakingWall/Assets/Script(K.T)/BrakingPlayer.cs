@@ -13,10 +13,15 @@ public class BrakingPlayer : MonoBehaviour
     [SerializeField] private TextMeshProUGUI lifeText;  //時間表示のためのテキスト
     private int helseCounter = 3;
     private int lifeCount;
+    //public int PlayerLIfe
+    //{
+    //    get {; }
+    //    set {; }
+    //}
     private void Start()
     {
         //lifeCount = lifeImage.Length;
-        lifeText.text = helseCounter.ToString();
+        //lifeText.text = helseCounter.ToString();
     }
     private void Update()
     {

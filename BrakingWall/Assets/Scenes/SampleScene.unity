@@ -410,32 +410,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::testMovePlayer
   speed: 5
---- !u!1 &2020738230 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6756116573035572948, guid: 4e3650f1d8bf35d4bb304031967f777a, type: 3}
-  m_PrefabInstance: {fileID: 2707514865433666408}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2020738231 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8176251329495602214, guid: 4e3650f1d8bf35d4bb304031967f777a, type: 3}
-  m_PrefabInstance: {fileID: 2707514865433666408}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2020738234
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2020738230}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6de86bec47b8c3e4a8f585e5b07d4d37, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Arrow
-  arrowPrefab: {fileID: 2489222463051080830, guid: e406d487874de624594f937f8febfc17, type: 3}
-  spawnPoint: {fileID: 2020738231}
-  interval: 1
-  autoStart: 1
 --- !u!1001 &2707514865433666408
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -447,38 +421,6 @@ PrefabInstance:
     - target: {fileID: 6756116573035572948, guid: 4e3650f1d8bf35d4bb304031967f777a, type: 3}
       propertyPath: m_Name
       value: yasouti_0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8146022564553912359, guid: 4e3650f1d8bf35d4bb304031967f777a, type: 3}
-      propertyPath: m_Size.x
-      value: 1.5625
-      objectReference: {fileID: 0}
-    - target: {fileID: 8146022564553912359, guid: 4e3650f1d8bf35d4bb304031967f777a, type: 3}
-      propertyPath: m_Size.y
-      value: 1.5625
-      objectReference: {fileID: 0}
-    - target: {fileID: 8146022564553912359, guid: 4e3650f1d8bf35d4bb304031967f777a, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 8484214784405286335, guid: 098a1e0a0adf8a4478d40814b750ba3b, type: 3}
-    - target: {fileID: 8146022564553912359, guid: 4e3650f1d8bf35d4bb304031967f777a, type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8146022564553912359, guid: 4e3650f1d8bf35d4bb304031967f777a, type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8176251329495602214, guid: 4e3650f1d8bf35d4bb304031967f777a, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8176251329495602214, guid: 4e3650f1d8bf35d4bb304031967f777a, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8176251329495602214, guid: 4e3650f1d8bf35d4bb304031967f777a, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8176251329495602214, guid: 4e3650f1d8bf35d4bb304031967f777a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -520,17 +462,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8176251329495602214, guid: 4e3650f1d8bf35d4bb304031967f777a, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6756116573035572948, guid: 4e3650f1d8bf35d4bb304031967f777a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2020738234}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e3650f1d8bf35d4bb304031967f777a, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

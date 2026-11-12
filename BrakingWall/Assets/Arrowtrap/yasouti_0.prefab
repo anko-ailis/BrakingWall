@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8176251329495602214}
   - component: {fileID: 8146022564553912359}
+  - component: {fileID: 7871147646593509906}
   m_Layer: 0
   m_Name: yasouti_0
   m_TagString: Untagged
@@ -25,9 +26,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6756116573035572948}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.1142, y: -4.1113, z: 0}
-  m_LocalScale: {x: 2.4232, y: 3.6348, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -79,15 +80,31 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -421242247924653752, guid: f52f9e8106769994cb03898cc07bae39, type: 3}
+  m_Sprite: {fileID: 8484214784405286335, guid: 098a1e0a0adf8a4478d40814b750ba3b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.5, y: 0.5}
+  m_Size: {x: 1.5625, y: 1.5625}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &7871147646593509906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6756116573035572948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6de86bec47b8c3e4a8f585e5b07d4d37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Arrow
+  arrowPrefab: {fileID: 2489222463051080830, guid: e406d487874de624594f937f8febfc17, type: 3}
+  spawnPoint: {fileID: 8176251329495602214}
+  interval: 1
+  autoStart: 1

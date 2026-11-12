@@ -8,6 +8,7 @@ public class ToHold : MonoBehaviour
     [SerializeField] SliderExample se;//SliderExampleクラス
     [SerializeField] BombThrow bombT;//BombThrowクラス
     [SerializeField] UIChange ui; //UIChangeクラス
+    private BoxCollider2D  bombCollider;//爆弾のBoxCollider2D
     [SerializeField] private Transform grabPoint;//掴む位置
     [SerializeField] private Transform rayPoint;//Rayの発射位置
 
@@ -41,14 +42,15 @@ public class ToHold : MonoBehaviour
     //Rayを飛ばして爆弾を掴む
     public void Ray(InputAction.CallbackContext context)
     {
-        //Rayを飛ばす
-        hit = Physics2D.Raycast(rayPoint.position, transform.right, rayDistance);
-        //Rayが当たって当たったオブジェクトのタグが爆弾だった時
-        if (hit.collider != null && hit.collider.tag == "bomb")
+        //入力の状態が始まった時
+        if (context.started)
         {
-            //入力の状態が始まった時
-            if (context.started)
+            //Rayを飛ばす
+            hit = Physics2D.Raycast(rayPoint.position, transform.right, rayDistance);
+            //Rayが当たって当たったオブジェクトのタグが爆弾だった時
+            if (hit.collider != null && hit.collider.tag == "bomb")
             {
+
                 //掴んでいない時
                 if (hold == false)
                 {
@@ -58,6 +60,9 @@ public class ToHold : MonoBehaviour
                         Debug.Log("スタミナが足りるよん");
                         //掴む爆弾を取得
                         bomb = hit.collider.gameObject;
+                        bombCollider = bomb.GetComponent<BoxCollider2D>();
+                        //掴む爆弾のBoxCollider2Dを無効化
+                        bombCollider.enabled = false;
                         //掴んでいる状態にする
                         hold = true;
                         ui.ChangeImage1();
@@ -68,18 +73,24 @@ public class ToHold : MonoBehaviour
                         //スタミナが足りない時の処理（必要に応じて追加）
                     }
                 }
+            }
+            else
+            {
                 //掴んでいる時
-                else
+                if (hold == true)
                 {
+                    //掴む爆弾のBoxCollider2Dを有効にする
+                    bombCollider.enabled = true;
                     //掴む爆弾のBombThrowクラスを取得
                     bombT = bomb.GetComponent<BombThrow>();
+                    Debug.Log("掴んでいる爆弾を投げるよん");
                     //掴んでいる爆弾を投げる
                     bombT.Throw();
                     //掴んでいる状態を解除
                     hold = false;
                     ui.ChangeImage2();
                 }
-            }
+            }    
         }
     }
     //運ぶ

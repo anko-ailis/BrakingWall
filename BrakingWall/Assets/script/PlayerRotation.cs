@@ -12,6 +12,7 @@ public enum Direction
 public class PlayerRotation : MonoBehaviour
 {
     [SerializeField] private GameObject player;//プレイヤーのオブジェクト
+    private GameObject bomb;//掴んでいる爆弾のオブジェクト
     private int direction = 1;//プレイヤーの向き（初期値は上）
     //プレイヤーの向きを上に補正させる
     private void RotaUp()

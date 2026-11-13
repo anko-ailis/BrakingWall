@@ -34,7 +34,7 @@ public class boomEnemyAI : MonoBehaviour
     void Update()
     {
             SearchPalyerObject();
-            if (playerObject == null) SelfDestruct();
+            //if (playerObject == null) SelfDestruct();
         //Debug.Log(playerInRange+ "[][]" + Hold);
         if(Hold == false && playerInRange)
         {

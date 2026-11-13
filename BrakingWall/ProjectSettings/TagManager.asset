@@ -12,7 +12,7 @@ TagManager:
   - Color_Green
   - Color_Blue
   - Brake_wall
-  - ChekPoint
+  - CheckPoint
   layers:
   - Default
   - TransparentFX

@@ -13,38 +13,62 @@ public class ReSpawn : MonoBehaviour
     private GameObject SurvivPlayer;
     private Vector3 RespawnPoint ;
     ChekPoint ChekPoint;
+    BrakingPlayer BrakPl;
+    [SerializeField] Transform pSawn;
     //{
-    //    get {return ChekPoint.SpawnPoint; }
+    //    get { return ; }
     //}
 
     private void Start()
     {
         //    this.transform.SetParent(PlayerPrefab.transform);
-        SurvivPlayer = this.transform.GetChild(0).gameObject;
+        Debug.Log(this.transform.GetChild(0));
         RespawnPoint = SpawnPoiont;
-        SpawnPlayer();
-        //if(SurvivPlayer == null)
-        //{
-        //    SurvivPlayer = PlayerPrefab;
-        //    Instantiate(PlayerPrefab, SpawnPoiont, Quaternion.Euler(0f, 0f, 0f));
-        //}
+        if (SurvivPlayer == null)
+        {
+            Debug.Log("Player‚¢‚È‚¢‚æ");
+            if (this.transform.GetChild(0).gameObject != null)
+            {
+                Debug.Log("Žq‹Ÿ‚ª‚¢‚é‚æ");
+                SurvivPlayer = this.transform.GetChild(0).gameObject;
+                Debug.Log(SurvivPlayer);
+            }
+            else
+            {
+                Debug.Log("Žq‹Ÿ‚¢‚È‚¢‚æ");
+                SpawnPlayer();
+            }
+
+        }
+        else Debug.Log("Žq‹Ÿ‚ª‚¢‚é‚æ");
+            //Instantiate(PlayerPrefab, SpawnPoiont, Quaternion.Euler(0f, 0f, 0f));
     }
     private void Update()
     {
         if(SurvivPlayer == null)
         {
-            SpawnPlayer();
+            //SpawnPlayer();
         }
         if(Input.GetKey(KeyCode.R))
         {
-            SpawnPlayer();
+            //SpawnPlayer();
         }
     }
 
+    //private Transform SPSP(Transform psps)
+    //{ 
+    //    return BrakPl.PlayerSpawPos;
+    //}
     private void SpawnPlayer()
     {
+        //Debug.Log(SurvivPlayer);
         if(SurvivPlayer != null) Destroy(SurvivPlayer);
-        //GameObject NewChild = Instantiate(PlayerPrefab, ChekPoint.Point);
-        //SurvivPlayer = NewChild;
+        //pSawn = ChekPoint.TraPoint;
+        Debug.Log(BrakPl.PlayerSpawPos);
+        pSawn = BrakPl.PlayerSpawPos;
+        //Transform pSawn = ChekPoint.TraPoint;
+        GameObject NewChild = Instantiate(PlayerPrefab , this.transform , true);
+        SurvivPlayer = NewChild;
+        NewChild.transform.position = pSawn.position;
     }
 }

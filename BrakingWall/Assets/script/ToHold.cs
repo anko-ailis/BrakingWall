@@ -8,6 +8,7 @@ public class ToHold : MonoBehaviour
     [SerializeField] SliderExample se;//SliderExampleクラス
     [SerializeField] BombThrow bombT;//BombThrowクラス
     [SerializeField] UIChange ui; //UIChangeクラス
+    [SerializeField] PlayerRotation pR;//PlayerRotationクラス
     private BoxCollider2D  bombCollider;//爆弾のBoxCollider2D
     [SerializeField] private Transform grabPoint;//掴む位置
     [SerializeField] private Transform rayPoint;//Rayの発射位置
@@ -66,6 +67,9 @@ public class ToHold : MonoBehaviour
                         //掴んでいる状態にする
                         hold = true;
                         ui.ChangeImage1();
+                        pR.Holdbombhandover(hold);
+                        pR.Holdbombnamehandover(bomb);
+
                     }
                     else
                     {
@@ -88,6 +92,7 @@ public class ToHold : MonoBehaviour
                     bombT.Throw();
                     //掴んでいる状態を解除
                     hold = false;
+                    pR.Holdbombhandover(hold);
                     ui.ChangeImage2();
                 }
             }    

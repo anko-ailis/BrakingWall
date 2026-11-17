@@ -39,7 +39,7 @@ public class BrakingPlayer : MonoBehaviour
                 //lifeImage.[i] = lostLife;
             }
         }
-        if (Input.GetKey(KeyCode.R))
+        if (Input.GetKey(KeyCode.E))
         {
             helseCounter = 3;
             LifeCounterManegre();
@@ -97,10 +97,12 @@ public class BrakingPlayer : MonoBehaviour
     private void LifeCounterManegre()
     {
         //HPÇ…âûÇ∂ÇƒHPÇÃUIÇÃï\é¶ÅAîÒï\é¶Ç…Ç∑ÇÈ
-        for (int i = 0; i <= lifeCount; i++)
+        for (int i = 0; i < lifeArray.Length; i++)
         {
-            if (helseCounter < i)
+            if (helseCounter > i)
             {
+
+                Debug.Log(helseCounter + "/" + lifeArray[i]);
                 lifeArray[i].SetActive(true);
             }
             else lifeArray[i].SetActive(false);
@@ -113,6 +115,6 @@ public class BrakingPlayer : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-        Debug.Log(helseCounter);
+        //Debug.Log(helseCounter);
     }
 }

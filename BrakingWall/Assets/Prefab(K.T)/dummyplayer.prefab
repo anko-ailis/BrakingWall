@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1624903111608804762}
   - component: {fileID: 6439284877311284586}
   - component: {fileID: 5013202941352947742}
+  - component: {fileID: 1448668239441421458}
   m_Layer: 0
   m_Name: dummyplayer
   m_TagString: Player
@@ -86,7 +87,7 @@ SpriteRenderer:
   m_SortingOrder: 5
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -193,3 +194,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24a6a2a6bf0d9a643bf54c4c451e8551, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+--- !u!114 &1448668239441421458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 577416638551282112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 316b7d5d224f4684aae530aeaf3d825f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  lifeArray:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  lifeText: {fileID: 0}

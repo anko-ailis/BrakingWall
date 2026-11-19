@@ -1,3 +1,4 @@
+using System;
 using System.Drawing;
 using Unity.VisualScripting;
 using UnityEditor.Build;
@@ -9,33 +10,36 @@ public class ReSpawn : MonoBehaviour
     [SerializeField] private GameObject PlayerPrefab;
     [Tooltip("初期スポーン")]
     [SerializeField] private Vector3 SpawnPoiont;
-    [SerializeField] private GameObject Maneger;
-    private GameObject SurvivPlayer;
-    private Vector3 RespawnPoint ;
-    ChekPoint ChekPoint;
+    [SerializeField] private GameObject SurvivPlayer;
+    private float ChekTime = 0;
     BrakingPlayer BrakPl;
-    [SerializeField] Transform pSawn;
+    [Tooltip("以下確認用")]
+    [SerializeField] Vector3 pSawn;         //以下確認用
+    [SerializeField] GameObject NewChild;
     //{
     //    get { return ; }
     //}
 
     private void Start()
     {
+        BrakPl = this.transform.GetChild(0).gameObject.GetComponent<BrakingPlayer>();
+        SpawnChek();
         //    this.transform.SetParent(PlayerPrefab.transform);
         Debug.Log(this.transform.GetChild(0));
-        RespawnPoint = SpawnPoiont;
+        SurvivPlayer = this.transform.GetChild(0).gameObject;
+
         if (SurvivPlayer == null)
         {
             Debug.Log("Playerいないよ");
             if (this.transform.GetChild(0).gameObject != null)
             {
-                Debug.Log("子供がいるよ");
+                Debug.Log("子供ができたよ");
                 SurvivPlayer = this.transform.GetChild(0).gameObject;
                 Debug.Log(SurvivPlayer);
             }
             else
             {
-                Debug.Log("子供いないよ");
+                Debug.Log("子供うんでないお");
                 SpawnPlayer();
             }
 
@@ -45,13 +49,17 @@ public class ReSpawn : MonoBehaviour
     }
     private void Update()
     {
-        if(SurvivPlayer == null)
+        if (SurvivPlayer == null)
         {
-            //SpawnPlayer();
+            BrakPl = this.transform.GetChild(0).gameObject.GetComponent<BrakingPlayer>();
+            SpawnChek();
+            SpawnPlayer();
         }
-        if(Input.GetKey(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R))//&& ChekTime + 1 < Time.deltaTime
         {
-            //SpawnPlayer();
+            
+            SpawnChek();
+            SpawnPlayer();
         }
     }
 
@@ -61,14 +69,26 @@ public class ReSpawn : MonoBehaviour
     //}
     private void SpawnPlayer()
     {
+        float SposX, SposY, SposZ;
         //Debug.Log(SurvivPlayer);
-        if(SurvivPlayer != null) Destroy(SurvivPlayer);
         //pSawn = ChekPoint.TraPoint;
+        BrakPl = this.transform.GetChild(0).gameObject.GetComponent<BrakingPlayer>();
         Debug.Log(BrakPl.PlayerSpawPos);
-        pSawn = BrakPl.PlayerSpawPos;
+        SposX = BrakPl.PlayerSpawPos.transform.position.x;
+        SposY = BrakPl.PlayerSpawPos.transform.position.y;
+        SposZ = BrakPl.PlayerSpawPos.transform.position.z;
+        pSawn = new Vector3(SposX, SposY, SposZ);
         //Transform pSawn = ChekPoint.TraPoint;
-        GameObject NewChild = Instantiate(PlayerPrefab , this.transform , true);
+        NewChild = Instantiate(PlayerPrefab , this.transform , true);
+        if (SurvivPlayer != null) Destroy(SurvivPlayer);
         SurvivPlayer = NewChild;
-        NewChild.transform.position = pSawn.position;
+        BrakPl = this.transform.GetChild(0).gameObject.GetComponent<BrakingPlayer>();
+        //NewChild.transform.position = pSawn.position;
+    }
+    private void SpawnChek() 
+    {
+        SpawnPoiont = new Vector3(this.transform.GetChild(0).position.x,
+    this.transform.GetChild(0).position.y,
+    this.transform.GetChild(0).position.z);
     }
 }

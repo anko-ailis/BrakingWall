@@ -9,7 +9,7 @@ public class ToHold : MonoBehaviour
     [SerializeField] BombThrow bombT;//BombThrowクラス
     [SerializeField] UIChange ui; //UIChangeクラス
     [SerializeField] PlayerRotation pR;//PlayerRotationクラス
-    private BoxCollider2D  bombCollider;//爆弾のBoxCollider2D
+    private CircleCollider2D bombCollider;//爆弾のBoxCollider2D
     [SerializeField] private Transform grabPoint;//掴む位置
     [SerializeField] private Transform rayPoint;//Rayの発射位置
 
@@ -49,7 +49,7 @@ public class ToHold : MonoBehaviour
             //Rayを飛ばす
             hit = Physics2D.Raycast(rayPoint.position, transform.right, rayDistance);
             //Rayが当たって当たったオブジェクトのタグが爆弾だった時
-            if (hit.collider != null && hit.collider.tag == "bomb")
+            if (hit.collider != null && hit.collider.tag == "Color_Blue" || hit.collider != null && hit.collider.tag == "bomb" || hit.collider != null && hit.collider.tag == "bomb")
             {
 
                 //掴んでいない時
@@ -61,7 +61,7 @@ public class ToHold : MonoBehaviour
                         Debug.Log("スタミナが足りるよん");
                         //掴む爆弾を取得
                         bomb = hit.collider.gameObject;
-                        bombCollider = bomb.GetComponent<BoxCollider2D>();
+                        bombCollider = bomb.GetComponent<CircleCollider2D>();
                         //掴む爆弾のBoxCollider2Dを無効化
                         bombCollider.enabled = false;
                         //掴んでいる状態にする

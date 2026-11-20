@@ -11,7 +11,6 @@ public class ReSpawn : MonoBehaviour
     [Tooltip("初期スポーン")]
     [SerializeField] private Vector3 SpawnPoiont;
     [SerializeField] private GameObject SurvivPlayer;
-    private float ChekTime = 0;
     BrakingPlayer BrakPl;
     [Tooltip("以下確認用")]
     [SerializeField] Vector3 pSawn;         //以下確認用

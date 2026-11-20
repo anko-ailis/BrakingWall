@@ -12,7 +12,7 @@ public class TitleScreen : MonoBehaviour
         // 入力チェック
         if (startButton == null)
         {
-            Debug.LogError("StartButton が Inspector に設定されていません。");
+            
             enabled = false;
             return;
         }
@@ -36,7 +36,7 @@ public class TitleScreen : MonoBehaviour
         // シーン切り替え
         try
         {
-            SceneManager.LoadScene(gameSceneName);
+            
         }
         catch (System.Exception ex)
         {

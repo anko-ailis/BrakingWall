@@ -23,7 +23,7 @@ public class BombThrow : MonoBehaviour
         //動くことを許可する
         moving = true;
         //プレイヤーの向きをplayerRに聞く
-        direction = playerR.handover();
+        direction = playerR.directionhandover();
         //プレイヤーの向きに合わせて爆弾の移動方向を決める
         switch (direction)
         {

@@ -5,7 +5,7 @@ using UnityEngine.UI;              // UIボタンに必要
 public class TitleScreen : MonoBehaviour
 {
     [SerializeField] private Button startButton; // Inspectorでボタンを割り当て
-    [SerializeField] private string gameSceneName = "GameScene"; // ゲームシーン名
+    [SerializeField] private string gameSceneName = "RyougaScene"; // ゲームシーン名
 
     private void Awake()
     {

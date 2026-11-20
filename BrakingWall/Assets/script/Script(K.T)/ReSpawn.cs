@@ -51,13 +51,14 @@ public class ReSpawn : MonoBehaviour
         if (SurvivPlayer == null)
         {
             BrakPl = this.transform.GetChild(0).gameObject.GetComponent<BrakingPlayer>();
-            SpawnChek();
+            //SpawnChek();
+            Debug.Log(";;;;");
             SpawnPlayer();
         }
         if (Input.GetKeyDown(KeyCode.R))//&& ChekTime + 1 < Time.deltaTime
         {
             
-            SpawnChek();
+            //SpawnChek();
             SpawnPlayer();
         }
     }
@@ -81,6 +82,8 @@ public class ReSpawn : MonoBehaviour
         NewChild = Instantiate(PlayerPrefab , this.transform , true);
         if (SurvivPlayer != null) Destroy(SurvivPlayer);
         SurvivPlayer = NewChild;
+        Debug.Log(BrakPl.PlayerSpawPos.transform.position);
+        NewChild.transform.position = BrakPl.PlayerSpawPos.transform.position; 
         BrakPl = this.transform.GetChild(0).gameObject.GetComponent<BrakingPlayer>();
         //NewChild.transform.position = pSawn.position;
     }

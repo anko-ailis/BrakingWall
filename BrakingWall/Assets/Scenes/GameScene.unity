@@ -1849,6 +1849,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: bomb
       objectReference: {fileID: 0}
+    - target: {fileID: 4007940919438269621, guid: 9dff215a0885be045921400861451bce, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6054321150200539487, guid: 9dff215a0885be045921400861451bce, type: 3}
       propertyPath: playerR
       value: 

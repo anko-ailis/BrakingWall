@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using static UnityEngine.Rendering.DebugUI;
 
 public class PlayerHelsManeger : MonoBehaviour
 {
@@ -11,16 +12,32 @@ public class PlayerHelsManeger : MonoBehaviour
     [SerializeField] private GameObject[] helseImage;       //プレイヤーのHP画像
     [Tooltip("HP　")]
     [SerializeField] private TextMeshProUGUI lifeText;  //HP表示のためのテキスト　目安のため残してある後で消す
-    private float playerHelseCounter = 3;
+    private float lifeCount = 3;
+    public float playerHelseCounter { 
+        get { return lifeCount; }
+        set { lifeCount = value; } }//getが受け取り、setが送り
+    
+    //public float helseCountreGetSet {  get;  set; }//getが贈る、setが受け取り
     void Start()
     {
-        lifeText.text = playerHelseCounter.ToString();
+
+        //lifeText.text = playerHelseCounter.ToString();
+        lifeText.text = helseImage.Length.ToString(); 
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKey(KeyCode.E))
+        {
+            lifeCount = 3;
+            LifeCounterManegre();
+        }
+        if (Input.GetKey(KeyCode.T))
+        {
+            lifeCount = 1;
+            LifeCounterManegre();
+        }
     }
 
     private void LifeCounterManegre()
@@ -28,19 +45,19 @@ public class PlayerHelsManeger : MonoBehaviour
         //HPに応じてHPのUIの表示、非表示にする
         for (int i = 0; i < helseImage.Length; i++)
         {
-            if (playerHelseCounter > i)
+            if (lifeCount > i)
             {
 
-                Debug.Log(playerHelseCounter + "/" + helseImage[i]);
+                Debug.Log(lifeCount + "/" + helseImage[i]);
                 helseImage[i].SetActive(true);
             }
             else helseImage[i].SetActive(false);
         }
         //対応した画像を非表示にしてカウントを減らす
         //lifeArray[helseCounter - 1].SetActive(false);
-        lifeText.text = playerHelseCounter.ToString();
+        lifeText.text = lifeCount.ToString();
         //HPが0になったらプレイヤーを消す
-        if (playerHelseCounter <= 0)
+        if (lifeCount <= 0)
         {
             Destroy(this.gameObject);
         }

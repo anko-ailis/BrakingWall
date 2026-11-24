@@ -1,6 +1,8 @@
 using UnityEngine;
 using static UnityEditor.Searcher.SearcherWindow.Alignment;
-
+/// <summary>
+/// テスト用のプレイヤーを動かすもの
+/// </summary>
 public class testMovePlayer : MonoBehaviour
 {
     [SerializeField]private float speed;

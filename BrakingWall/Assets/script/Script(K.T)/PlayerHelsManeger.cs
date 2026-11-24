@@ -38,10 +38,6 @@ public class PlayerHelsManeger : MonoBehaviour
             lifeCount = 1;
             LifeCounterManegre();
         }
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            Debug.Log(lifeCount + "ABC");
-        }
         LifeCounterManegre();
         lifeText.text = lifeCount.ToString();
     }
@@ -58,7 +54,6 @@ public class PlayerHelsManeger : MonoBehaviour
             }
             else helseImage[i].SetActive(false);
         }
-        Debug.Log(lifeCount+"123");
         //対応した画像を非表示にしてカウントを減らす
         //lifeArray[helseCounter - 1].SetActive(false);
         //HPが0になったらプレイヤーを消す

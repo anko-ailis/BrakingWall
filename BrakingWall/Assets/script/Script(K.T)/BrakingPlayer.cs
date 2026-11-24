@@ -76,7 +76,7 @@ public class BrakingPlayer : MonoBehaviour
         //“G‚É“–‚½‚Á‚½‚çHP‚ðŒ¸‚ç‚·
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            helseCounter--;
+            helseCounter--;                 //HP‚ðŒ¸‚ç‚·
             PHmaneger.playerHelseCounter--;
             Debug.Log(helseCounter);
             LifeCounterManegre();

@@ -89,13 +89,14 @@ public class ReSpawn : MonoBehaviour
         Debug.Log(BrakPl.PlayerSpawPos);
         //Transform pSawn = ChekPoint.TraPoint;
         NewChild = Instantiate(PlayerPrefab , this.transform , true);   //子供としてプレイヤーを生む
-        if (SurvivPlayer != null) Destroy(SurvivPlayer);
+        if (SurvivPlayer != null) Destroy(SurvivPlayer);            //プレイヤーがいるなら古いほうを消す
         SurvivPlayer = NewChild;
         Debug.Log(BrakPl.PlayerSpawPos.transform.position);
-        NewChild.transform.position = BrakPl.PlayerSpawPos.transform.position; 
-        BrakPl = this.transform.GetChild(0).gameObject.GetComponent<BrakingPlayer>();
+        NewChild.transform.position = BrakPl.PlayerSpawPos.transform.position; //リスポーン地点に移動
+        BrakPl = this.transform.GetChild(0).gameObject.GetComponent<BrakingPlayer>();//参照元を更新
         //NewChild.transform.position = pSawn.position;
     }
+    //初期スポーン地点をプレイヤーの初期位置にする
     private void SpawnChek() 
     {
         SpawnPoiont = new Vector3(this.transform.GetChild(0).position.x,

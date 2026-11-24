@@ -8,13 +8,14 @@ public class BrakingPlayer : MonoBehaviour
 {
     //[SerializeField] private string tagEnamy;
     //[Tooltip("")]
-    [SerializeField] private GameObject[] lifeArray;  //時間表示のためのテキスト
+    //[SerializeField] private GameObject[] lifeArray;  //時間表示のためのテキスト
     [Tooltip("HP")]
-    [SerializeField] private TextMeshProUGUI lifeText;  //時間表示のためのテキスト
+    //[SerializeField] private TextMeshProUGUI lifeText;  //時間表示のためのテキスト
     private float helseCounter = 3;
     private float lifeCount;
     PlayerHelsManeger PHmaneger;
-    Transform tratra;
+    ReSpawn reSpawn;
+    Transform tratra;               //    スポーンポイント
     public Transform PlayerSpawPos
     {
         get { return tratra; }
@@ -23,9 +24,10 @@ public class BrakingPlayer : MonoBehaviour
     private void Start()
     {
         PHmaneger = this.transform.parent.GetComponent<PlayerHelsManeger>();
+        reSpawn = this.transform.parent.GetComponent<ReSpawn>();
         PHmaneger.playerHelseCounter = helseCounter;
         if (tratra == null) tratra = this.transform;
-        this.transform.position = tratra.transform.position;
+        tratra.transform.position = this.transform.position;
         //this.transform.position = Chek.VecSpawnPoint;
         //lifeCount = lifeImage.Length;
         //lifeText.text = helseCounter.ToString();
@@ -44,28 +46,30 @@ public class BrakingPlayer : MonoBehaviour
         if (Input.GetKey(KeyCode.E))
         {
             helseCounter = 3;
-            PHmaneger.playerHelseCounter = helseCounter;
-            LifeCounterManegre();
+            PHmaneger.playerHelseCounter = 3;
+            
+            //LifeCounterManegre();
         }
         if (Input.GetKey(KeyCode.T))
         {
             helseCounter = 1;
-            PHmaneger.playerHelseCounter = helseCounter;
-            LifeCounterManegre();
+            PHmaneger.playerHelseCounter = 1;
+            //LifeCounterManegre();
         }
+        PHmaneger.playerHelseCounter = helseCounter;
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        //エネミータグにあたると死ぬ
-        if (collision.gameObject.transform.parent != null)
-        {
-            if (collision.gameObject.transform.parent.gameObject.CompareTag("Enemy"))
-            {
-                Debug.Log("-_-");
-            }
-        }
-    }
+    //void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    //エネミータグにあたると死ぬ
+    //    if (collision.gameObject.transform.parent != null)
+    //    {
+    //        if (collision.gameObject.transform.parent.gameObject.CompareTag("Enemy"))
+    //        {
+    //            Debug.Log("-_-");
+    //        }
+    //    }
+    //}
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -73,35 +77,38 @@ public class BrakingPlayer : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             helseCounter--;
+            PHmaneger.playerHelseCounter--;
+            Debug.Log(helseCounter);
             LifeCounterManegre();
         }
         //チェックポイントに触れたら座標を保存する
         if (collision.gameObject.CompareTag("CheckPoint"))
         {
-            tratra = this.transform;
+            tratra = collision.transform;
         }
         Debug.Log(helseCounter + "><" + PHmaneger.playerHelseCounter);
-        PHmaneger.playerHelseCounter = helseCounter;
+        //PHmaneger.playerHelseCounter = helseCounter;
     }
 
     private void LifeCounterManegre()
     {
         //HPに応じてHPのUIの表示、非表示にする
-        for (int i = 0; i <= lifeArray.Length; i++)
-        {
-            if (helseCounter < i)
-            {
-                Debug.Log(helseCounter + "/" + lifeArray[i]);
-                lifeArray[i].SetActive(true);
-            }
-            else lifeArray[i].SetActive(false);
-        }
+        //for (int i = 0; i <= lifeArray.Length; i++)
+        //{
+        //    if (helseCounter < i)
+        //    {
+        //        Debug.Log(helseCounter + "/" + lifeArray[i]);
+        //        lifeArray[i].SetActive(true);
+        //    }
+        //    else lifeArray[i].SetActive(false);
+        //}
         //対応した画像を非表示にしてカウントを減らす
         //lifeArray[helseCounter - 1].SetActive(false);
-        lifeText.text = helseCounter.ToString();
+        //lifeText.text = helseCounter.ToString();
         //HPが0になったらプレイヤーを消す
         if (helseCounter <= 0)
         {
+            reSpawn.Spawn();
             Destroy(this.gameObject);
         }
         Debug.Log(helseCounter);

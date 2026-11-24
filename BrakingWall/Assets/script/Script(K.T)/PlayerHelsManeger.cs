@@ -22,22 +22,28 @@ public class PlayerHelsManeger : MonoBehaviour
     {
 
         //lifeText.text = playerHelseCounter.ToString();
-        lifeText.text = helseImage.Length.ToString(); 
+        lifeText.text = helseImage.ToString(); 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             lifeCount = 3;
             LifeCounterManegre();
         }
-        if (Input.GetKey(KeyCode.T))
+        if (Input.GetKeyDown(KeyCode.T))
         {
             lifeCount = 1;
             LifeCounterManegre();
         }
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            Debug.Log(lifeCount + "ABC");
+        }
+        LifeCounterManegre();
+        lifeText.text = lifeCount.ToString();
     }
 
     private void LifeCounterManegre()
@@ -47,19 +53,18 @@ public class PlayerHelsManeger : MonoBehaviour
         {
             if (lifeCount > i)
             {
-
                 Debug.Log(lifeCount + "/" + helseImage[i]);
                 helseImage[i].SetActive(true);
             }
             else helseImage[i].SetActive(false);
         }
+        Debug.Log(lifeCount+"123");
         //対応した画像を非表示にしてカウントを減らす
         //lifeArray[helseCounter - 1].SetActive(false);
-        lifeText.text = lifeCount.ToString();
         //HPが0になったらプレイヤーを消す
         if (lifeCount <= 0)
         {
-            Destroy(this.gameObject);
+            Destroy(this.transform.GetChild(0).gameObject);
         }
         //Debug.Log(helseCounter);
     }

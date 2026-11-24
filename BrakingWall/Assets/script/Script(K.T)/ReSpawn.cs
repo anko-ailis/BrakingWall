@@ -26,7 +26,7 @@ public class ReSpawn : MonoBehaviour
         //    this.transform.SetParent(PlayerPrefab.transform);
         Debug.Log(this.transform.GetChild(0));
         SurvivPlayer = this.transform.GetChild(0).gameObject;
-
+        NewChild = this.transform.GetChild(0).gameObject;
         if (SurvivPlayer == null)
         {
             Debug.Log("Playerいないよ");
@@ -50,10 +50,12 @@ public class ReSpawn : MonoBehaviour
     {
         if (SurvivPlayer == null)
         {
+            SurvivPlayer = Instantiate(PlayerPrefab, this.transform, true);
+            SpawnPlayer();
             BrakPl = this.transform.GetChild(0).gameObject.GetComponent<BrakingPlayer>();
             //SpawnChek();
-            Debug.Log(";;;;");
-            SpawnPlayer();
+            //Debug.Log(";;;;");
+
         }
         if (Input.GetKeyDown(KeyCode.R))//&& ChekTime + 1 < Time.deltaTime
         {
@@ -63,23 +65,30 @@ public class ReSpawn : MonoBehaviour
         }
     }
 
+    public void Spawn()
+    {
+        SpawnPlayer();
+    }
     //private Transform SPSP(Transform psps)
     //{ 
     //    return BrakPl.PlayerSpawPos;
     //}
     private void SpawnPlayer()
     {
-        float SposX, SposY, SposZ;
+        //float SposX, SposY, SposZ;
         //Debug.Log(SurvivPlayer);
         //pSawn = ChekPoint.TraPoint;
-        BrakPl = this.transform.GetChild(0).gameObject.GetComponent<BrakingPlayer>();
+        if (SurvivPlayer != null)
+        {
+            BrakPl = this.transform.GetChild(0).gameObject.GetComponent<BrakingPlayer>();
+            //SposX = BrakPl.PlayerSpawPos.transform.position.x;      //座標取得
+            //SposY = BrakPl.PlayerSpawPos.transform.position.y;
+            //SposZ = BrakPl.PlayerSpawPos.transform.position.z;
+            //pSawn = new Vector3(SposX, SposY, SposZ);
+        }
         Debug.Log(BrakPl.PlayerSpawPos);
-        SposX = BrakPl.PlayerSpawPos.transform.position.x;
-        SposY = BrakPl.PlayerSpawPos.transform.position.y;
-        SposZ = BrakPl.PlayerSpawPos.transform.position.z;
-        pSawn = new Vector3(SposX, SposY, SposZ);
         //Transform pSawn = ChekPoint.TraPoint;
-        NewChild = Instantiate(PlayerPrefab , this.transform , true);
+        NewChild = Instantiate(PlayerPrefab , this.transform , true);   //子供としてプレイヤーを生む
         if (SurvivPlayer != null) Destroy(SurvivPlayer);
         SurvivPlayer = NewChild;
         Debug.Log(BrakPl.PlayerSpawPos.transform.position);

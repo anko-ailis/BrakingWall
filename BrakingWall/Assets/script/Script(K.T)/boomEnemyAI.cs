@@ -6,6 +6,7 @@ public class boomEnemyAI : MonoBehaviour
 {
     [Tooltip("プレイヤーを判断するためのの変数。" +
         "何も入れなくて大丈夫だけど心配なら入れてください")]
+    [SerializeField] private ToHold toHold; //toHoldクラスの参照
     [SerializeField] private GameObject playerObject;   //プレイヤー
     [SerializeField] private float moveSpeed;           //移動速度
     [SerializeField] private float destroyCountoTime;   //爆発までの時間
@@ -17,6 +18,7 @@ public class boomEnemyAI : MonoBehaviour
     [SerializeField] private GameObject explosionDamegEfect;//爆発エフェクト
     [SerializeField] private GameObject explosionNoDamegEfect;//爆発エフェクト
     [SerializeField] private string tagColor;
+    private GameObject holdbomb;                          //つかまれた爆弾の名前
     private bool playerInRange= false;
     private float countTimere = 0;
     private bool Hold = false;                          //つかまれたか
@@ -104,6 +106,13 @@ public class boomEnemyAI : MonoBehaviour
             Debug.Log("noDameg");
             Instantiate(explosionNoDamegEfect, this.gameObject.transform.position, explosionNoDamegEfect.transform.rotation);
         }
+        //掴まれている爆弾の時
+        if (this.gameObject == holdbomb)
+        {
+
+            Debug.Log("おしえたよ");
+            toHold.SelfDestruct();//自爆したことをtoHoldに教える
+        }
         Destroy(this.gameObject);
     }
     /// <summary>
@@ -175,5 +184,15 @@ public class boomEnemyAI : MonoBehaviour
             }
         }
 
+    }
+    //爆弾を持っているかを教えてもらう
+    public void Holdbombhandover(bool newhold)
+    {
+        Hold = newhold;
+        Debug.Log("Holdbombhandover" + Hold);
+    }
+    public void Holdbombnamehandover(GameObject newbonb)
+    {
+        holdbomb = newbonb;
     }
 }

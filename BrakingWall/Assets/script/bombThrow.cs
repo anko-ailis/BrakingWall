@@ -3,14 +3,14 @@ using UnityEngine;
 public class BombThrow : MonoBehaviour
 {
     [SerializeField] PlayerRotation playerR;//PlayerRotationクラス
-    private bool moving = false;//動いているか判定
+    private bool moving = false;//爆弾が動いているか判定
     private float speed = 5f; // 移動速度
     private float moveX = 10;//移動方向X
     private float moveY = 0;//移動方向Y
     private int direction = 0;//プレイヤーの向き
     void Update()
     {
-        //動いていい時
+        //爆弾が動いていい時
         if (moving == true)
         {
             //爆弾を動かす
@@ -20,7 +20,7 @@ public class BombThrow : MonoBehaviour
     //投げる
     public void Throw()
     {
-        //動くことを許可する
+        //爆弾が動くことを許可する
         moving = true;
         //プレイヤーの向きをplayerRに聞く
         direction = playerR.directionhandover();
@@ -48,7 +48,7 @@ public class BombThrow : MonoBehaviour
     //動いているかを教える
     public bool handover()
     {
-        //動いているかを返す
+        //爆弾が動いているかを返す
         return moving;
     }
 }

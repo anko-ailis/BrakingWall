@@ -11,7 +11,7 @@ public class DeahtwallMove : MonoBehaviour
             //ゲームオーバー
             GameOver();
         }
-        if (collision.gameObject.CompareTag("bomb") || collision.gameObject.CompareTag("Color_Blue"))
+        if (collision.gameObject.CompareTag("bomb") || collision.gameObject.CompareTag("Color_Blue") || collision.gameObject.CompareTag("Color_Green") || collision.gameObject.CompareTag("Color_Red"))
         {
             Destroy(collision.gameObject);
         }

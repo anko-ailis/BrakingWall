@@ -15,7 +15,7 @@ public class ArrowDamage : MonoBehaviour
 
         if (player != null)
         {
-            player.TakeDamage(damage);
+            //player.TakeDamage(damage);
 
             Destroy(gameObject);
         }

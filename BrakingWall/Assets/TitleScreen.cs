@@ -12,7 +12,7 @@ public class TitleScreen : MonoBehaviour
         // 入力チェック
         if (startButton == null)
         {
-            Debug.LogError("StartButton が Inspector に設定されていません。");
+           
             enabled = false;
             return;
         }

@@ -12,6 +12,7 @@ public class Arrowtrap : MonoBehaviour
 
     private float timer;
 
+
     void Update()
     {
         timer += Time.deltaTime;
@@ -21,6 +22,7 @@ public class Arrowtrap : MonoBehaviour
             Shoot();
             timer = 0f;
         }
+
     }
 
     void Shoot()
@@ -33,22 +35,14 @@ public class Arrowtrap : MonoBehaviour
 
         Rigidbody2D rb = arrow.GetComponent<Rigidbody2D>();
 
+
         rb.gravityScale = 0;
-        rb.linearVelocity = Vector2.right * speed;
+        rb.linearVelocity = Vector2.right* speed;
+        
     }
+
 }
 
 
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    //void Start()
-    //{
-        
-    //}
-
-    //// Update is called once per frame
-    //void Update()
-    //{
-        
-    //}
-
+    

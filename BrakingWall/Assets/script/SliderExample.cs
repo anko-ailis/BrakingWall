@@ -16,7 +16,7 @@ public class SliderExample : MonoBehaviour
     }
     void Update()
     {
-        currentsutamina += 5 * Time.deltaTime; // スタミナを徐々に回復
+        currentsutamina += 50 * Time.deltaTime; // スタミナを徐々に回復
         sutaminaSlider.value = currentsutamina; // スライダー UI に反映
     }
     public bool IsStaminaAvailable()

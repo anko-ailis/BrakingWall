@@ -8,8 +8,10 @@ public class BombThrow : MonoBehaviour
     private float moveX = 10;//ˆÚ“®•ûŒüX
     private float moveY = 0;//ˆÚ“®•ûŒüY
     private int direction = 0;//ƒvƒŒƒCƒ„[‚ÌŒü‚«
+    boomEnemyAI BomAI;
     void Update()
     {
+        BomAI = this.gameObject.GetComponent<boomEnemyAI>();
         //”š’e‚ª“®‚¢‚Ä‚¢‚¢
         if (moving == true)
         {
@@ -50,5 +52,14 @@ public class BombThrow : MonoBehaviour
     {
         //”š’e‚ª“®‚¢‚Ä‚¢‚é‚©‚ğ•Ô‚·
         return moving;
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        //”š’e‚ª•Ç‚É“–‚½‚Á‚½‚ç
+        if (moving )
+        {
+            //”š’e‚ğ~‚ß‚é
+            BomAI.SelfDestruct();
+        }
     }
 }

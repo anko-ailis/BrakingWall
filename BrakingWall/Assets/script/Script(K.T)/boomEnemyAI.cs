@@ -91,7 +91,7 @@ public class boomEnemyAI : MonoBehaviour
     /// <summary>
     /// ©”šƒvƒƒOƒ‰ƒ€
     /// </summary>
-    private void SelfDestruct()
+    public void SelfDestruct()
     {
         //Debug.Log("©”š‚·‚é‚µ‚©‚Ë‚¥");
         //Debug.Log(Hold);

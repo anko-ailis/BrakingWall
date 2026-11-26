@@ -6,6 +6,8 @@ public class PlayerAnimationController : MonoBehaviour
     private Animator animator;
 
     private int direction = 0;
+    private int beforeDirection = 0;
+    private bool change = false;
 
     void Start()
     {
@@ -38,12 +40,15 @@ public class PlayerAnimationController : MonoBehaviour
                 direction = 3; // ‰E
             }
         }
+        if (direction != beforeDirection) 
+        {
+            beforeDirection = direction;
+            change = true;
+        }
 
+        animator.SetBool("change",change);
         animator.SetInteger("Direction", direction);
         animator.SetBool("IsMoving", isMoving);
-
-        Debug.Log("X: " + x +
-                  " / Y: " + y +
-                  " / Direction: " + direction);
+        change = false;
     }
 }

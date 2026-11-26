@@ -6,10 +6,11 @@ using UnityEngine.InputSystem;
 public class ToHold : MonoBehaviour
 {
     [SerializeField] SliderExample se;//SliderExampleクラス
-    [SerializeField] BombThrow bombT;//BombThrowクラス
     [SerializeField] UIChange ui; //UIChangeクラス
     [SerializeField] PlayerRotation pR;//PlayerRotationクラス
-    private BoxCollider2D  bombCollider;//爆弾のBoxCollider2D
+    private boomEnemyAI boomEnemyAI;//boomEnemyAIクラス
+    private BombThrow bombT;//BombThrowクラス
+    private CircleCollider2D bombCollider;//爆弾のBoxCollider2D
     [SerializeField] private Transform grabPoint;//掴む位置
     [SerializeField] private Transform rayPoint;//Rayの発射位置
 
@@ -49,7 +50,7 @@ public class ToHold : MonoBehaviour
             //Rayを飛ばす
             hit = Physics2D.Raycast(rayPoint.position, transform.right, rayDistance);
             //Rayが当たって当たったオブジェクトのタグが爆弾だった時
-            if (hit.collider != null && hit.collider.tag == "bomb")
+            if (hit.collider != null && hit.collider.tag == "Color_Blue" || hit.collider != null && hit.collider.tag == "Color_Green" || hit.collider != null && hit.collider.tag == "Color_Red")
             {
 
                 //掴んでいない時
@@ -61,14 +62,18 @@ public class ToHold : MonoBehaviour
                         Debug.Log("スタミナが足りるよん");
                         //掴む爆弾を取得
                         bomb = hit.collider.gameObject;
-                        bombCollider = bomb.GetComponent<BoxCollider2D>();
+                        bombCollider = bomb.GetComponent<CircleCollider2D>();
                         //掴む爆弾のBoxCollider2Dを無効化
                         bombCollider.enabled = false;
+                        //掴む爆弾のboomEnemyAIクラスを取得
+                        boomEnemyAI = bomb.GetComponent<boomEnemyAI>();
                         //掴んでいる状態にする
                         hold = true;
                         ui.ChangeImage1();
-                        pR.Holdbombhandover(hold);
-                        pR.Holdbombnamehandover(bomb);
+                        pR.Holdbombhandover(hold);//掴んでいるかPlayerRotationクラスに教える（掴んでる）
+                        boomEnemyAI.Holdbombhandover(hold);//掴んでいるかboomEnemyAIクラスに教える（掴んでる）
+                        pR.Holdbombnamehandover(bomb);//掴んでいる爆弾の名前をPlayerRotationクラスに渡す
+                        boomEnemyAI.Holdbombnamehandover(bomb);//掴んでいる爆弾の名前をboomEnemyAIクラスに渡す
 
                     }
                     else
@@ -92,12 +97,23 @@ public class ToHold : MonoBehaviour
                     bombT.Throw();
                     //掴んでいる状態を解除
                     hold = false;
-                    pR.Holdbombhandover(hold);
+                    pR.Holdbombhandover(hold);//掴んでいるかPlayerRotationクラスに教える（掴んでない）
+                    boomEnemyAI.Holdbombhandover(hold);//掴んでいるかboomEnemyAIクラスに教える（掴んでない）
                     ui.ChangeImage2();
                 }
             }    
         }
     }
+    //爆弾が自爆したとき
+    public void SelfDestruct()
+    {
+        //掴んでいる状態を解除
+        hold = false;
+        pR.Holdbombhandover(hold);//掴んでいるかPlayerRotationクラスに教える（掴んでない）
+        boomEnemyAI.Holdbombhandover(hold);//掴んでいるかboomEnemyAIクラスに教える（掴んでない）
+        ui.ChangeImage2();
+    }
+
     //運ぶ
     void Hold()
     {

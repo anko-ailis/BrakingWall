@@ -124,28 +124,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2982769259580561865, guid: f4946e2bbf5842540939046d4e8ecf8c, type: 3}
   m_PrefabInstance: {fileID: 7258174250116886619}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &133199201 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5682936674031401062, guid: f382d5be58ec8704ea455b73c43dfeb0, type: 3}
-  m_PrefabInstance: {fileID: 7460703214785907630}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
---- !u!114 &334968869 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7312989478871277160, guid: f382d5be58ec8704ea455b73c43dfeb0, type: 3}
-  m_PrefabInstance: {fileID: 7460703214785907630}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1 &368613504
 GameObject:
   m_ObjectHideFlags: 0
@@ -785,7 +763,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &686501652
 Transform:
   m_ObjectHideFlags: 0
@@ -1952,17 +1930,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1316341713}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1839447776 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5037429603730905142, guid: f382d5be58ec8704ea455b73c43dfeb0, type: 3}
-  m_PrefabInstance: {fileID: 7460703214785907630}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1 &1849370155 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5880008477419949443, guid: d7b64edd6119e8142b50e5d1fd91deb3, type: 3}
@@ -2145,14 +2112,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5798326964623279698, guid: e5550530fa4085f438c3c1d31fab13a5, type: 3}
-      propertyPath: textMesh
-      value: 
-      objectReference: {fileID: 334968869}
-    - target: {fileID: 5798326964623279698, guid: e5550530fa4085f438c3c1d31fab13a5, type: 3}
-      propertyPath: destroyCountoTime
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 8052605915016164493, guid: e5550530fa4085f438c3c1d31fab13a5, type: 3}
       propertyPath: m_Name
       value: dummyEnemy(Green)
@@ -2283,14 +2242,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8615789898766762355, guid: d7b64edd6119e8142b50e5d1fd91deb3, type: 3}
-      propertyPath: textMesh
-      value: 
-      objectReference: {fileID: 133199201}
-    - target: {fileID: 8615789898766762355, guid: d7b64edd6119e8142b50e5d1fd91deb3, type: 3}
-      propertyPath: destroyCountoTime
-      value: 5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2417,14 +2368,6 @@ PrefabInstance:
     - target: {fileID: 1449985361937015526, guid: 7ce17ec468489674995e390be08d31d6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1491706614337975024, guid: 7ce17ec468489674995e390be08d31d6, type: 3}
-      propertyPath: textMesh
-      value: 
-      objectReference: {fileID: 1839447776}
-    - target: {fileID: 1491706614337975024, guid: 7ce17ec468489674995e390be08d31d6, type: 3}
-      propertyPath: destroyCountoTime
-      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7317857190732363367, guid: 7ce17ec468489674995e390be08d31d6, type: 3}
       propertyPath: m_Name
@@ -2609,6 +2552,10 @@ PrefabInstance:
       propertyPath: m_AnchorMin.y
       value: 0.8727273
       objectReference: {fileID: 0}
+    - target: {fileID: 141999097031337996, guid: f382d5be58ec8704ea455b73c43dfeb0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 371899905757045281, guid: f382d5be58ec8704ea455b73c43dfeb0, type: 3}
       propertyPath: target
       value: 
@@ -2633,6 +2580,14 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1131680450}
+    - target: {fileID: 5628924206527531091, guid: f382d5be58ec8704ea455b73c43dfeb0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6584669395695061914, guid: f382d5be58ec8704ea455b73c43dfeb0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7084157261769933879, guid: f382d5be58ec8704ea455b73c43dfeb0, type: 3}
       propertyPath: target
       value: 

@@ -27,7 +27,7 @@ public class ReSpawn : MonoBehaviour
         Debug.Log(this.transform.GetChild(0));
         SurvivPlayer = this.transform.GetChild(0).gameObject;
         NewChild = this.transform.GetChild(0).gameObject;
-        if (SurvivPlayer == null)
+        if (SurvivPlayer == null)   //変数のチェック
         {
             Debug.Log("Playerいないよ");
             if (this.transform.GetChild(0).gameObject != null)
@@ -48,18 +48,16 @@ public class ReSpawn : MonoBehaviour
     }
     private void Update()
     {
+        //プレイヤーが死んだらリスポーンさせる
         if (SurvivPlayer == null)
         {
             SurvivPlayer = Instantiate(PlayerPrefab, this.transform, true);
             SpawnPlayer();
             BrakPl = this.transform.GetChild(0).gameObject.GetComponent<BrakingPlayer>();
             //SpawnChek();
-            //Debug.Log(";;;;");
-
         }
-        if (Input.GetKeyDown(KeyCode.R))//&& ChekTime + 1 < Time.deltaTime
+        if (Input.GetKeyDown(KeyCode.R))//リスポーンボタン
         {
-            
             //SpawnChek();
             SpawnPlayer();
         }

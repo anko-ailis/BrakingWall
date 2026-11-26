@@ -17,6 +17,7 @@ public class ChekPoint : MonoBehaviour
 
     private void Start()
     {
+        //多分不必要になったやつ
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Player");
         foreach(GameObject play in enemies)
         {
@@ -27,19 +28,16 @@ public class ChekPoint : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        //チェックポイントの更新
+        if (collision.gameObject.transform.CompareTag("player"))
         {
-            if (collision.gameObject.transform.CompareTag("player"))
-            {
-                //Debug.Log(collision.transform.position);
-                Transform coll = collision.transform;
-                traSpawn = coll.transform;
-                Vector2 center2D = coll.transform.position;
-                SpawnPoint = new Vector3(center2D.x, center2D.y, 0f);
-                Debug.Log(SpawnPoint);
-                //SpawnPoint = new Vector3(collision.gameObject);
-            }
+            //Debug.Log(collision.transform.position);
+            Transform coll = collision.transform;
+            traSpawn = coll.transform;
+            Vector2 center2D = coll.transform.position;
+            SpawnPoint = new Vector3(center2D.x, center2D.y, 0f);
+            Debug.Log(SpawnPoint);
+            //SpawnPoint = new Vector3(collision.gameObject);
         }
-
     }
-
 }

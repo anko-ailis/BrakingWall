@@ -12,6 +12,7 @@ public class DeahtwallMove : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("bomb") || collision.gameObject.CompareTag("Color_Blue") || collision.gameObject.CompareTag("Color_Green") || collision.gameObject.CompareTag("Color_Red"))
         {
+            Debug.Log($"Hit:{collision.gameObject.name}");
             Destroy(collision.gameObject);
         }
     }

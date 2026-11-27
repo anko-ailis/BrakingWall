@@ -265,6 +265,7 @@ GameObject:
   - component: {fileID: 4454712843544545570}
   - component: {fileID: 5525640183380646524}
   - component: {fileID: 5798326964623279698}
+  - component: {fileID: 3152204001885358149}
   - component: {fileID: 6097655026502657575}
   - component: {fileID: 1083325707664946334}
   - component: {fileID: 3956023011911850328}
@@ -362,14 +363,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2da54ff80e769bc459fb19af2f045d40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NewMonoBehaviourScript
+  toHold: {fileID: 0}
   playerObject: {fileID: 0}
-  moveSpeed: 2
+  moveSpeed: 1
   destroyCountoTime: 5
   perceptionRange: 10
-  textMesh: {fileID: 7578606687962132908}
+  textMesh: {fileID: 0}
   explosionDamegEfect: {fileID: 607342300143883963, guid: 368fce8e208cf104989109508b7d6ad6, type: 3}
   explosionNoDamegEfect: {fileID: 8068090637481966786, guid: ccc89121089ead6449198fc698a6fe77, type: 3}
   tagColor: Color_Green
+--- !u!114 &3152204001885358149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8052605915016164493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c72917413dd023c4e97942207db378e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BombThrow
+  playerR: {fileID: 0}
 --- !u!50 &6097655026502657575
 Rigidbody2D:
   serializedVersion: 5

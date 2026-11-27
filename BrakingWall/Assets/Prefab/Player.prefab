@@ -80,6 +80,7 @@ GameObject:
   - component: {fileID: 5624796142723530746}
   - component: {fileID: 4494302875137703965}
   - component: {fileID: 392025918785192965}
+  - component: {fileID: 9106367229225130942}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -97,8 +98,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.5, y: 1.5, z: 0.5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5205848951819931940}
   - {fileID: 5959252378259859253}
@@ -422,8 +423,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.1}
-  m_Radius: 0.185
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.2
 --- !u!114 &4007172963206651212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -452,7 +453,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   se: {fileID: 0}
-  bombT: {fileID: 0}
   ui: {fileID: 0}
   pR: {fileID: 5624796142723530746}
   grabPoint: {fileID: 5959252378259859253}
@@ -464,7 +464,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8026683411299900064}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8d201e706f948bc4ca94fedd224fe6cc, type: 3}
   m_Name: 
@@ -504,3 +504,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cebe7ea4a7c0a6c47b80d7b9d3d0e0f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+--- !u!114 &9106367229225130942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8026683411299900064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 316b7d5d224f4684aae530aeaf3d825f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BrakingPlayer

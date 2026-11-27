@@ -29,5 +29,11 @@ public class CameraMove : MonoBehaviour
         }
         camerapositionX = camerapositionX + cameramoveSpeed * Time.fixedDeltaTime;
         gameObject.transform.position = new Vector3(camerapositionX, camerapositionY, -10); // カメラの位置をプレイヤーの位置に合わせる
+
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Player"); //プレイヤーtag持ちを集める
+        foreach (GameObject playerObject in enemies)      //集めたプレイヤーを探索する
+        {
+            player = playerObject;
+        }
     }
 }

@@ -31,7 +31,7 @@ public class BrakingPlayer : MonoBehaviour
         //this.transform.position = Chek.VecSpawnPoint;
         //lifeCount = lifeImage.Length;
         //lifeText.text = helseCounter.ToString();
-        Debug.Log(tratra + "^^" + PHmaneger.playerHelseCounter);
+        //Debug.Log(tratra + "^^" + PHmaneger.playerHelseCounter);
     }
     private void Update()
     {
@@ -78,7 +78,7 @@ public class BrakingPlayer : MonoBehaviour
         {
             helseCounter--;                 //HPを減らす
             PHmaneger.playerHelseCounter--;
-            Debug.Log(helseCounter);
+            //Debug.Log(helseCounter);
             LifeCounterManegre();
         }
         //チェックポイントに触れたら座標を保存する
@@ -86,7 +86,7 @@ public class BrakingPlayer : MonoBehaviour
         {
             tratra = collision.transform;
         }
-        Debug.Log(helseCounter + "><" + PHmaneger.playerHelseCounter);
+        //Debug.Log(helseCounter + "><" + PHmaneger.playerHelseCounter);
         //PHmaneger.playerHelseCounter = helseCounter;
     }
 
@@ -111,6 +111,6 @@ public class BrakingPlayer : MonoBehaviour
             reSpawn.Spawn();
             Destroy(this.gameObject);
         }
-        Debug.Log(helseCounter);
+        //Debug.Log(helseCounter);
     }
 }

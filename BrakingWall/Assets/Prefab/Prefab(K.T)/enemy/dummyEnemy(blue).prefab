@@ -166,6 +166,7 @@ GameObject:
   - component: {fileID: 261931050527635001}
   - component: {fileID: 4376311048359319272}
   - component: {fileID: 7000493742743247593}
+  - component: {fileID: 246508769759596983}
   m_Layer: 0
   m_Name: dummyEnemy(blue)
   m_TagString: Color_Blue
@@ -260,11 +261,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2da54ff80e769bc459fb19af2f045d40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NewMonoBehaviourScript
+  toHold: {fileID: 0}
   playerObject: {fileID: 0}
-  moveSpeed: 2
+  moveSpeed: 1
   destroyCountoTime: 5
   perceptionRange: 10
-  textMesh: {fileID: 248383510140339233}
+  textMesh: {fileID: 0}
   explosionDamegEfect: {fileID: 607342300143883963, guid: 368fce8e208cf104989109508b7d6ad6, type: 3}
   explosionNoDamegEfect: {fileID: 8068090637481966786, guid: ccc89121089ead6449198fc698a6fe77, type: 3}
   tagColor: Color_Blue
@@ -353,6 +355,19 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
+--- !u!114 &246508769759596983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5880008477419949443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c72917413dd023c4e97942207db378e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BombThrow
+  playerR: {fileID: 0}
 --- !u!1 &6681082543626291821
 GameObject:
   m_ObjectHideFlags: 0

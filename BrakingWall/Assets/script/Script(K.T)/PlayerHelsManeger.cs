@@ -10,8 +10,8 @@ public class PlayerHelsManeger : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     [Tooltip("HP画像（image）")]
     [SerializeField] private GameObject[] helseImage;       //プレイヤーのHP画像
-    [Tooltip("HP　")]
-    [SerializeField] private TextMeshProUGUI lifeText;  //HP表示のためのテキスト　目安のため残してある後で消す
+    //[Tooltip("HP　")]
+    //[SerializeField] private TextMeshProUGUI lifeText;  //HP表示のためのテキスト　目安のため残してある後で消す
     private float lifeCount = 3;
     public float playerHelseCounter { 
         get { return lifeCount; }
@@ -22,7 +22,7 @@ public class PlayerHelsManeger : MonoBehaviour
     {
 
         //lifeText.text = playerHelseCounter.ToString();
-        lifeText.text = helseImage.ToString(); 
+        //lifeText.text = helseImage.ToString(); 
     }
 
     // Update is called once per frame
@@ -39,7 +39,7 @@ public class PlayerHelsManeger : MonoBehaviour
             LifeCounterManegre();
         }
         LifeCounterManegre();
-        lifeText.text = lifeCount.ToString();
+        //lifeText.text = lifeCount.ToString();
     }
 
     private void LifeCounterManegre()
@@ -49,7 +49,7 @@ public class PlayerHelsManeger : MonoBehaviour
         {
             if (lifeCount > i)
             {
-                Debug.Log(lifeCount + "/" + helseImage[i]);
+                //Debug.Log(lifeCount + "/" + helseImage[i]);
                 helseImage[i].SetActive(true);
             }
             else helseImage[i].SetActive(false);
